@@ -10,18 +10,17 @@ hms()
   let MM=${SECONDS}/60 # Total number of minutes
   let M=${MM}%60
   let H=${MM}/60
-  
+
   if [ "$2" == "long" ]; then
     [ "$H" -eq "1" ] && H_TAG="hour" || H_TAG="hours"
     [ "$M" -eq "1" ] && M_TAG="minute" || M_TAG="minutes"
     [ "$S" -eq "1" ] && S_TAG="second" || S_TAG="seconds"
     [ "$H" -gt "0" ] && printf "%d %s " $H "${H_TAG},"
-    [ "$SECONDS" -ge "60" ] && printf "%d %s " $M "${M_TAG} and"
-    printf "%d %s\n" $S "${S_TAG}"
-  else
-    
+ else
+
 [ "$H" -gt "0" ] && printf "%02d%s" $H "h"
     [ "$M" -gt "0" ] && printf "%02d%s" $M "m"
     printf "%02d%s\n" $S "s"
   fi
-}
+
+
